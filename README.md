@@ -17,3 +17,8 @@ We use [Django framework](https://www.djangoproject.com/) as a main framework fo
 Server will be exposed on 8000 port of your localhost: 
 
 http://localhost:8000
+
+## Existing urls
+
+- [Test page](http://localhost:8000/parties/test)
+- [Home page](http://localhost:8000/parties/home-page)
