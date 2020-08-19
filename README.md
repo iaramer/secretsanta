@@ -20,5 +20,4 @@ http://localhost:8000
 
 ## Existing urls
 
-- Test page: http://localhost:8000/parties/test
-- Home page: http://localhost:8000/parties/home-page
+- Home page: http://localhost:8000/home
