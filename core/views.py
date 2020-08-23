@@ -1,6 +1,5 @@
 from django.shortcuts import render
-
-from core.models import User
+from django.contrib.auth.models import User
 
 
 def home(request):
@@ -15,11 +14,12 @@ def signup(request):
     users = User.objects.all()
 
     if request.method == 'POST':
-        user = User()
-        user.first_name = request.POST.get('fname')
-        user.second_name = request.POST.get('sname')
-        user.email = request.POST.get('eml')
-        user.password = request.POST.get('pwd')
+        username = request.POST.get('uname')
+        first_name = request.POST.get('fname')
+        second_name = request.POST.get('sname')
+        email = request.POST.get('eml')
+        password = request.POST.get('pwd')
+        user = User.objects.create_user(username, email, password, first_name=first_name, last_name=second_name)
         user.save()
 
         request.method = 'GET'
