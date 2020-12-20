@@ -10,11 +10,11 @@ def welcome(request):
 
 
 def signup(request):
-    return render(request, 'core/homePage.html')
+    return render(request, 'core/signup.html')
 
 
 def login(request):
-    return render(request, 'core/homePage.html')
+    return render(request, 'core/login.html')
 
 
 def party(request):
