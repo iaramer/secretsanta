@@ -1,9 +1,9 @@
 {% extends "core/wrapper.html" %}
 
 {% block content %}
-    <form>
-        <label for="email-id">Email:</label><br>
-        <input type="email" id="email-id" name="username"><br>
+    <form method="POST">
+        <label for="uname">Username:</label><br>
+        <input type="text" id="uname" name="uname"><br>
         <label for="pwd">Password:</label><br>
         <input type="password" id="pwd" name="pwd"><br>
         <input type="submit" value="Login">
