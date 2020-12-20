@@ -2,25 +2,18 @@
 
 {% block content %}
 
+    <h2>Registration</h2>
+    {# todo: temporary block, remove after completion of the signup #}
     <p>What do we have:</p>
     {% for user in users %}
-        {{ user.username }}<br>
+        {{ user.email }}<br>
     {% endfor %}
 
+    <h2>Регистрация</h2>
     <form method="POST">
         {% csrf_token %}
-        <label for="uname">Username:</label><br>
-        <input type="text" id="uname" name="uname"><br>
-        <label for="fname">First name:</label><br>
-        <input type="text" id="fname" name="fname"><br>
-        <label for="sname">Second name:</label><br>
-        <input type="text" id="sname" name="sname"><br>
-        <label for="eml">Email:</label><br>
-        <input type="email" id="eml" name="eml"><br>
-        <label for="pwd">Password:</label><br>
-        <input type="password" id="pwd" name="pwd"><br>
-        <label for="rpwd">Repeat password:</label><br>
-        <input type="password" id="rpwd" name="rpwd"><br>
-        <input type="submit" value="Register">
+        {{ form.as_p }}
+        <button type="submit">Отправить</button>
     </form>
+
 {% endblock %}

@@ -1,5 +1,6 @@
-from django.shortcuts import render
 from django.contrib.auth.models import User
+from django.shortcuts import render
+from core.form import SignUpForm
 
 
 def home(request):
@@ -12,19 +13,16 @@ def welcome(request):
 
 def signup(request):
     users = User.objects.all()
-
     if request.method == 'POST':
-        username = request.POST.get('uname')
-        first_name = request.POST.get('fname')
-        second_name = request.POST.get('sname')
-        email = request.POST.get('eml')
-        password = request.POST.get('pwd')
-        user = User.objects.create_user(username, email, password, first_name=first_name, last_name=second_name)
-        user.save()
+        form = SignUpForm(request.POST)
+        if form.is_valid():
+            form.save()
 
         request.method = 'GET'
-
-    return render(request, 'core/signup.html', {'users': users})
+        return render(request, 'core/signup.html', {'form': form, 'users': users})
+    else:
+        form = SignUpForm()
+        return render(request, 'core/signup.html', {'form': form, 'users': users})
 
 
 def login(request):
